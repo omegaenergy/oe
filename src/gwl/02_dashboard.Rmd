@@ -1,0 +1,196 @@
+---
+title: "Well Field"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: rows
+    theme: bootstrap 
+    css: "../www/style.css"
+    logo: "../etc/logo.svg"
+    favicon: "../etc/icon.png"
+    navbar: 
+      - { title: "Data", href: "#data", align: left }
+      - { title: "Risk", href: "#risk", align: left }
+      - { title: "Insight", href: "#insight", align: left }
+      - { title: "About", href: "#about", align: left }
+      - { icon: "fa-download", href: !expr presigned_url, target: "_blank", align: "left" }
+params: 
+  AOI: "000"
+---
+
+<script>
+  $('.navbar-logo').wrap('<a href="https://www.watergrid.io" target="_blank">');
+</script>
+
+<style>
+  .custom-icon {
+    fill: #ADADAD;
+  }
+  .custom-icon:hover {
+    fill: #DA4567;
+  }
+  div.leaflet-popup-content {
+    width:auto !important;
+  }
+</style>
+
+```{r setup, include=FALSE}
+library(plotly)
+library(tidyverse)
+library(flexdashboard)
+library(leaflet)
+library(fontawesome)
+
+# pal
+pal <- rcartocolor::carto_pal(12, "Bold")
+
+# filter groundwater level data to supplied parameter
+gwl_gsa <- filter(gwl, web_name == params$AOI)
+
+# value boxes
+# icons: https://ionic.io/ionicons/v2
+box_gwl_median <- valueBox(paste(median(gwl_gsa$GSE_GWE, na.rm = TRUE)*-1, " ft"), 
+                           icon = "ion-arrow-down-c", color = pal[6],
+                           caption = "Median depth to groundwater (ft)")
+box_gwl_range <- valueBox(paste(paste(rev(range(gwl_gsa$GSE_GWE, na.rm = TRUE))*-1, 
+                                      collapse = " to "), " ft"), 
+                          icon = "ion-arrow-swap", color = pal[5],
+                          caption = "Range of depth to groundwater (ft)")
+box_number_wells <- valueBox(length(unique(gwl_gsa$SITE_CODE)), 
+                             icon = "ion-android-pin", color = pal[4],
+                             caption = "Count of monitoring wells")
+```
+
+
+Data {.hidden}
+=======================================================================
+
+Row
+-----------------------------------------------------------------------
+
+### Groundwater level median {.value-box}
+
+```{r}
+box_gwl_median
+```
+
+### Groundwater level range (10-90th percentiles) {.value-box}
+
+```{r}
+box_gwl_range
+```
+
+### Number of monitoring well {.value-box}
+
+```{r}
+box_number_wells
+```
+
+Row {.tabset}
+-----------------------------------------------------------------------
+
+### **Monitoring locations**, last updated `r paste(Sys.time())`
+
+```{r}
+preprocessed$l
+```
+
+
+### **Groundwater depth below land surface (ft)**, last updated `r paste(Sys.time())`
+
+```{r}
+ggplotly(
+  ggplot(preprocessed$maoi, aes(MSMT_DATE, -GSE_GWE, color = SITE_CODE)) +
+    geom_point() +
+    geom_line(alpha = 0.5) +
+    guides(color = "none")
+  )
+```
+
+
+Risk {.hidden}
+=======================================================================
+
+
+Insight {.hidden}
+=======================================================================
+
+
+
+About {.hidden}
+=======================================================================
+
+Row {.tabset}
+-----------------------------------------------------------------------
+
+### More information
+
+#### Meritis hasta
+
+##### In tamen
+
+Lorem markdownum [cum turba](http://puerdeus.net/glomerataque.php) Orphea Ceyx. Liceat ubi custos vulnus quodvis Pithecusas
+Aeaciden.
+
+##### In sustinet continui inseris Boreas quae obstipuere
+
+Domus diu Baccho, amor prima deprecor virginitatis rapis bello reclinis. Non
+ramis servat precor, lacertis cum effecere habebat, variis partes Iove faciunt,
+reos.
+
+1. Tuta si esse
+2. Mihi aliis
+3. Spicula inceptos illi cornua sua
+4. Utinamque nubibus arte gradieris removit sumpserat fibras
+5. In timor capiebant iacuit usque
+6. Silvae numerum at inter in dique vultu
+
+##### Tura memorem arva iam flammis
+
+Hostem pendebat forma regem pariter quinquennia quoque sola: loquentis constitit
+quam Iove, sed. Vestigia an quae voce totidem nubes **quidem actis** suo putat
+paulatim intrat dolor caputque roganti. Est colatur modo!
+
+##### Cautes ramos ignes
+
+<img src="https://www.richpauloo.com/home/gallery/gallery/climb_wide.png" alt="Some picture" width="100%" height="100%">
+
+
+Fontis [cum turba](http://puerdeus.net/glomerataque.php), riget petit vestes,
+mutet ut non vetustas, Troiaeque, nomen destrinxit saepe. Domos teretesque.
+Ferro statuit decoris. Invenerit Talibus.
+
+    if (opticalGrayscaleManet(1 + wordIcqDesktop, layoutSoftware)) {
+        cross *= serviceRipcordingVfat;
+        reality.service_ibm = 2 + memory_cifs - wordart;
+        default_format_direct += engine_cache_shareware;
+    } else {
+        firmware_cd_p = latency(1, link);
+    }
+    var restoreDegaussWindows = smtp;
+    var flatbed_media_led = data;
+    text_graphic_vfat.type_access(cloud + koffice_modem_eps, transfer);
+    if (archive * process_video + vaporware_balancing_lte(4)) {
+        syntax = lion;
+        memory_telnet_p = nvram(3 + tunnelingSwitch, inbox);
+    }
+
+Felix vertice vocet, sed deus nec sterilis verba, seque, nova. Ipsum dedisti
+iactu praeruptam super minimum Othryn genuit tegitur pendebat gradus; et. Ut
+fetus non adversum venerat timent et fulmina iungit; potes licet ensem venit.
+Insonat multi, hunc bene haec dum *habent intrarit gentis*.
+
+### GSA information
+
+```{r}
+st_drop_geometry(gsa) %>% 
+  filter(GSA_ID == params$AOI) %>% 
+  pivot_longer(cols = everything(), names_to = "Field", values_to = "Value") %>% 
+  DT::datatable(rownames = FALSE, 
+                extensions = 'Buttons',
+                options = list(dom = 'Bfrtip',
+                               buttons = c('csv', 'excel'), 
+                               pageLength = 100,
+                               scrollY = "100vh",
+                               scrollCollapse = FALSE))
+```
+

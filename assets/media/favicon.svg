@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1935.1182"
+   height="1935.1182"
+   viewBox="0 0 512 512"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.1.1 (c3084ef, 2021-09-22)"
+   sodipodi:docname="favicon.svg"
+   inkscape:export-filename="/Users/richpauloo/Documents/GitHub/oe/assets/media/icon.png"
+   inkscape:export-xdpi="25.4"
+   inkscape:export-ydpi="25.4"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:document-units="mm"
+     showgrid="false"
+     width="512mm"
+     units="px"
+     inkscape:zoom="0.22645918"
+     inkscape:cx="686.65797"
+     inkscape:cy="461.45182"
+     inkscape:window-width="1526"
+     inkscape:window-height="969"
+     inkscape:window-x="1973"
+     inkscape:window-y="23"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs2" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <ellipse
+       style="fill:#2a9d8f;fill-opacity:1;stroke-width:0.349919"
+       id="path15136"
+       cx="256.45261"
+       cy="257.03674"
+       rx="252.94754"
+       ry="253.53171"
+       inkscape:export-filename="/Users/richpauloo/Documents/GitHub/oe/assets/media/icon.png"
+       inkscape:export-xdpi="25.4"
+       inkscape:export-ydpi="25.4" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:480.586px;line-height:1.25;font-family:sans-serif;fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:2.81584"
+       x="50.76659"
+       y="417.47272"
+       id="text3285"
+       transform="scale(1.0900044,0.91742748)"
+       inkscape:export-filename="/Users/richpauloo/Documents/GitHub/oe/assets/media/icon.png"
+       inkscape:export-xdpi="25.4"
+       inkscape:export-ydpi="25.4"><tspan
+         sodipodi:role="line"
+         id="tspan3283"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Charter;-inkscape-font-specification:Charter;fill:#ffffff;fill-opacity:1;stroke-width:2.81584"
+         x="50.76659"
+         y="417.47272">Ω</tspan></text>
+  </g>
+</svg>

@@ -2,19 +2,20 @@
 widget: hero
 headless: true
 weight: 10
-title: Online Course Template
-hero_media: student.svg
+title: Energy data, daily
+hero_media: dashboard_demo.png
 design:
   background:
     gradient_angle: 0
-    gradient_start: 'rgb(224,223,255)'
-    gradient_end: 'rgb(153,238,255)'
+    # https://coolors.co/001219-005f73-0a9396-94d2bd-e9d8a6-ee9b00-ca6702-bb3e03-ae2012-9b2226
+    gradient_start: 'rgb(241,250,238)'
+    gradient_end: 'rgb(148,210,189)'
     text_color_light: false
 cta:
-  url: course/
-  label: Explore our courses
+  url: contact/
+  label: Schedule a demo with our team »
   icon_pack: fas
-  icon: user-graduate
+  icon: hands-helping
 cta_alt:
   url:
   label:
@@ -25,8 +26,7 @@ advanced:
 ---
 <br>
 
-Published with the [Wowchemy Website Builder](https://wowchemy.com/) for Hugo.
+You depend on high-frequency energy data for decision-making, but gathering, cleaning, and visualizing it is time-consuming and expensive. Omega Energy dashboards automate data retrieval, analysis, and visualization, so you can make timely decisions with today's data.  
 
-Introduce your courses here.
 
-<a class="github-button" href="https://github.com/wowchemy/wowchemy-hugo-modules" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star Wowchemy Website Builder for Hugo">Star Wowchemy Website Builder for Hugo</a><br><a class="github-button" href="https://github.com/wowchemy/starter-hugo-online-course" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star the Online Course template">Star the Online Course template</a><script async defer src="https://buttons.github.io/buttons.js"></script>
+<br>
